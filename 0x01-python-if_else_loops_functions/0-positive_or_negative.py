@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#FS@alx
 import random
 number = random.randint(-10, 10)
 if number > 0:
