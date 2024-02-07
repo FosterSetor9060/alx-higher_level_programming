@@ -1,7 +1,5 @@
-7-add_item.py
 #!/usr/bin/python3
 """Defininf a class Student."""
-
 
 class Student:
     """Representing a student."""
