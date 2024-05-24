@@ -1,18 +1,13 @@
 #!/usr/bin/node
-// checks wether there are 3 arguments
+// Import the 'request' module.
 const request = require('request');
 
-if (process.argv.length !== 3) {
-  console.log('Usage: ./2-statuscode.js <URL>');
-  process.exit(1);
-}
+request.get(process.argv[2])
 
-const url = process.argv[2];
-request(url, (error, response) => {
-  if (error) {
-    console.error('Error:', error);
-  } else {
-    console.log('code:', response.statusCode);
-  }
-});
+  .on('response', function (response) {
+    // Set up an event listener for the 'response' event emitted by the HTTP request.
+
+    console.log(`code: ${response.statusCode}`);
+    // Log the HTTP status code of the response to the console.
+  });
 
