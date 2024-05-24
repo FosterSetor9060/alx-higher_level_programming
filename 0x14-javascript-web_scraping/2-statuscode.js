@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// checks wether there are exactly 3 arguments 
+// checks wether there are 3 arguments
 const request = require('request');
 
 if (process.argv.length !== 3) {
@@ -8,8 +8,11 @@ if (process.argv.length !== 3) {
 }
 
 const url = process.argv[2];
-
-request.get(url).on('response', function (response) {
-  console.log(`code: ${response.statusCode}`);
+request(url, (error, response) => {
+  if (error) {
+    console.error('Error:', error);
+  } else {
+    console.log('code:', response.statusCode);
+  }
 });
 
